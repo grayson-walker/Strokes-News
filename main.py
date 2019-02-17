@@ -13,23 +13,24 @@ r = praw.Reddit(
         user_agent='',
         username='')
 
-strokesNews = []   # to avoid duplicates
+strokes_news = [] 
+#Get the last 400 comments in the r/theStrokes subreddit
 posts = r.subreddit('theStrokes').comments(limit= 400)
 for comment in posts:
     post = comment.body.lower()
     if (post.find("strokes") != -1 and post.find("new") != -1) or (post.find("strokes") != -1 and post.find("tour") != -1):
-        strokesNews.append(post)
+        strokes_news.append(post)
         time.sleep(2)   # Sleep for 2 seconds
 
 
 
 print("The new strokes news is: ")
 print('----------------------------------------------------------------------------------------')
-print(len(strokesNews))
+print(len(strokes_news))
 
 #Judge 3 instances of "new" Strokes comments to be worthy of emailing
-if len(strokesNews)>3:
-    sendEmail(strokesNews)
+if len(strokes_news)>3:
+    sendEmail(strokes_news)
 
 
 
