@@ -1,13 +1,10 @@
-
+# Import the email modules we'll need
 import sys
 import praw
 from sendEmail import sendEmail
-
-# Import the email modules we'll need
-
 import time
 
-# Initialize PRAW with a custom User-Agent
+# Initialize PRAW (Reddit API wrapper) with a custom User-Agent
 #r = connection to reddit
 r = praw.Reddit(
         client_id='',
@@ -29,6 +26,8 @@ for comment in posts:
 print("The new strokes news is: ")
 print('----------------------------------------------------------------------------------------')
 print(len(strokesNews))
+
+#Judge 3 instances of "new" Strokes comments to be worthy of emailing
 if len(strokesNews)>3:
     sendEmail(strokesNews)
 
