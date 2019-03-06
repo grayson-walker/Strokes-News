@@ -4,8 +4,9 @@ import praw
 from sendEmail import sendEmail
 import time
 
-# Initialize PRAW (Reddit API wrapper) with a custom User-Agent
-#r = connection to reddit
+# Initialize PRAW (Reddit API wrapper) with a custom User-Agent. 
+# Insert your own reddit client information here
+# r = connection to reddit
 r = praw.Reddit(
         client_id='',
         client_secret='',
@@ -14,7 +15,7 @@ r = praw.Reddit(
         username='')
 
 strokes_news = [] 
-#Get the last 400 comments in the r/theStrokes subreddit
+# Get the last 400 comments in the r/theStrokes subreddit
 posts = r.subreddit('theStrokes').comments(limit= 400)
 for comment in posts:
     post = comment.body.lower()
@@ -28,7 +29,7 @@ print("The new strokes news is: ")
 print('----------------------------------------------------------------------------------------')
 print(len(strokes_news))
 
-#Judge 3 instances of "new" Strokes comments to be worthy of emailing
+# Judge 3 instances of "new" Strokes comments to be worthy of emailing
 if len(strokes_news)>3:
     sendEmail(strokes_news)
 
