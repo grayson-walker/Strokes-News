@@ -1,4 +1,4 @@
-# Import the email modules we'll need
+# Import the modules we'll need
 import sys
 import praw
 from sendEmail import sendEmail
