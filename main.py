@@ -25,9 +25,9 @@ for comment in posts:
 
 
 
-print("The new strokes news is: ")
+print("The new Strokes news is: ")
 print('----------------------------------------------------------------------------------------')
-print(len(strokes_news))
+print(strokes_news)
 
 # Judge 3 instances of "new" Strokes comments to be worthy of emailing
 if len(strokes_news)>3:
